@@ -1,0 +1,48 @@
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Effect": "Allow",
+"Action": "dynamodb:Scan",
+"Resource": "arn:aws:dynamodb:*:*:table/smarttruck*"
+},
+{
+"Effect": "Allow",
+"Action": [
+    "s3:PutObject",
+    "s3:GetObject",
+    "s3:ListBucket",
+"s3:GetBucketLocation"
+],
+"Resource": [
+"arn:aws:s3:::smarttruck*",
+"arn:aws:s3:::smarttruck*/*"
+]
+},
+{
+"Effect": "Allow",
+"Action": [
+"athena:StartQueryExecution",
+"athena:GetQueryExecution",
+"athena:GetQueryResults",
+"athena:CreateWorkGroup",
+"athena:GetWorkGroup",
+"glue:CreateDatabase",
+"glue:CreateTable",
+"glue:GetTable",
+"glue:GetTableVersion",
+"glue:GetTableVersions",
+"glue:GetPartitions",
+"glue:GetDatabase",
+"glue:GetDatabases",
+"glue:UpdateTable",
+"glue:UpdatePartition",
+"glue:CreatePartition",
+"glue:DeleteTable",
+"glue:GetPartition",
+"glue:BatchCreatePartition"
+],
+"Resource": "*"
+}
+]
+    }

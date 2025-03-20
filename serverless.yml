@@ -1,0 +1,29 @@
+service: new-dynamodb-athena-new
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: us-east-1
+  role: arn:aws:iam::222634370665:role/smarttruck-athena-role
+
+functions:
+  exportData:
+    handler: handler.createAthenaResources
+    timeout: 900
+    events:
+      - http:
+          path: migrate
+          method: get
+    environment:
+      ATHENA_DATABASE: mydb9
+      ATHENA_TABLE: mytb9
+      ATHENA_WORKGROUP: mywg9
+      S3_BUCKET: mywgquery
+
+# resources:
+#   Resources:
+#     AthenaQueryResultsBucket:
+#       Type: AWS::S3::Bucket
+#       Properties:
+#         BucketName: new-athena-results-222634370665227
