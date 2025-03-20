@@ -12,7 +12,7 @@ module.exports.createAthenaResources = async (event) => {
     console.log(`workgroup ${workgroup} doesnt exist`);
     await createAthenaWorkgroup(workgroup)
   }else{
-    console.log("workgroup already exists workgroup")
+    console.log("workgroup already exists")
   }
 
   // Create Athena Database
